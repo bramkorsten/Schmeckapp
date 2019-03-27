@@ -28,3 +28,9 @@ Route::get('achievements/{achievement}', 'AchievementController@show');
 Route::post('achievements', 'AchievementController@store');
 Route::put('achievements/{achievement}', 'AchievementController@update');
 Route::delete('achievements/{achievement}', 'AchievementController@delete');
+
+Route::get('stories', 'StoryController@index');
+Route::get('stories/{story}', 'StoryController@show');
+Route::post('stories', 'StoryController@store');
+Route::put('stories/{story}', 'StoryController@update');
+Route::delete('stories/{story}', 'StoryController@delete');
