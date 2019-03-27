@@ -22,3 +22,9 @@ Route::get('rewards/{reward}', 'RewardController@show');
 Route::post('rewards', 'RewardController@store');
 Route::put('rewards/{reward}', 'RewardController@update');
 Route::delete('rewards/{reward}', 'RewardController@delete');
+
+Route::get('achievements', 'AchievementController@index');
+Route::get('achievements/{achievement}', 'AchievementController@show');
+Route::post('achievements', 'AchievementController@store');
+Route::put('achievements/{achievement}', 'AchievementController@update');
+Route::delete('achievements/{achievement}', 'AchievementController@delete');
