@@ -23,6 +23,8 @@ Route::post('login', 'Auth\LoginController@login');
 Route::group(['middleware' => 'auth:api'], function() {
   Route::post('logout', 'Auth\LoginController@logout');
 
+  Route::post('user/xp', 'UserController@addXP');
+
   Route::get('rewards', 'RewardController@index');
   Route::get('rewards/{reward}', 'RewardController@show');
   Route::post('rewards', 'RewardController@store');
