@@ -22,3 +22,9 @@ Route::get('rewards/{reward}', 'RewardController@show');
 Route::post('rewards', 'RewardController@store');
 Route::put('rewards/{reward}', 'RewardController@update');
 Route::delete('rewards/{reward}', 'RewardController@delete');
+
+Route::get('stories', 'StoryController@index');
+Route::get('stories/{story}', 'StoryController@show');
+Route::post('stories', 'StoryController@store');
+Route::put('stories/{story}', 'StoryController@update');
+Route::delete('stories/{story}', 'StoryController@delete');
