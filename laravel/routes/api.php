@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('rewards', 'RewardController@index');
+Route::get('rewards/{reward}', 'RewardController@show');
+Route::post('rewards', 'RewardController@store');
+Route::put('rewards/{reward}', 'RewardController@update');
+Route::delete('rewards/{reward}', 'RewardController@delete');
