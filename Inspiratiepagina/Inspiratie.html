@@ -13,19 +13,33 @@
     <div class="person-parent">
         <div id="person" onclick="openoverlay();">
             <h2 style="color: white;">Henry Hendrickson</h2>  
+            <p>Lorem ipsum dolor sit amet, consectetur </p>
         </div>
-        <div id="person" onclick="openoverlay();">
+        <div style="background-image: linear-gradient(to bottom right, #FC9F33, #FCB96C);" id="person" onclick="openoverlayorange();">
             <h2 style="color: white;">Frits Peers</h2>  
+            <p>Lorem ipsum dolor sit amet, consectetur </p>
         </div>
     </div>
 </div>
            
 <div id="overlay">
-    <div id="text">
+    <div id="content">
         <span id="close" onclick="closeoverlay();" style='font-size:20px;'>&#10005;</span>
-        <h2 style="color: white;">Henry Hendrickson</h2>
+            <div class="text">
+                <h2 style="color: white;">Henry Hendrickson</h2>
+            </div>
     </div>
+    
 </div>
+
+<div id="overlayorange">
+        <div id="content">
+            <span id="close" onclick="closeoverlayorange();" style='font-size:20px;'>&#10005;</span>
+                <div class="text">
+                    <h2 style="color: white;">Frits Peers</h2>
+                </div>
+        </div>
+    </div>
 
 </body>
 </html>
