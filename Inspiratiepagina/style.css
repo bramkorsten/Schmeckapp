@@ -3,6 +3,8 @@
 
 p {
     font-family: 'Montserrat-Regular';
+    color: white;
+    font-size: 10px;
 }
 
 h1 {
@@ -13,7 +15,7 @@ h1 {
 
 h2 {
     font-family: 'Montserrat-Bold';
-    font-size: 20px;
+    font-size: 15px;
     color: #3379FC;
 }
 
@@ -27,12 +29,14 @@ h2 {
 }
 
 #person {
+    text-align: left;
+    padding: 5%;
     display: inline-block;
     border-radius: 16px;
-    height: 150px;
-    width: 90%;
-    background-color: #3379FC;
-    margin-bottom: 5%;
+    height: 100px;
+    width: 80%;
+    background-image: linear-gradient(to bottom right, #3379FC, #7FA8F7);
+    margin-bottom: 3%;
 }
 
 #person:hover {
@@ -44,8 +48,8 @@ h2 {
   }
   
 #overlay {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -54,10 +58,38 @@ h2 {
     overflow: hidden;
     width: 100%;
     height: 0;
-    transition: .5s ease;
+    transition: .2s ease;
+}
+
+#overlayorange {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FC9F33;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .2s ease;
+}
+
+#close {
+    color:white;
+    right: 10%;
+    top: 5%;
+    position: absolute;
+}
+
+#close:hover {
+    cursor: pointer;
+    color:lightgray;
 }
   
-#text {
+#content {
+    margin: 0 auto;
+    width: 100%;
     color: white;
     font-size: 20px;
     position: absolute;
@@ -67,13 +99,9 @@ h2 {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-  }
+}
 
-  #close {
-    color:white;
-  }
+.text {
+    margin-top: 5%;
+}
 
-  #close:hover {
-    cursor: pointer;
-    color:lightgray;
-  }
