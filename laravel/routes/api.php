@@ -17,20 +17,26 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('rewards', 'RewardController@index');
-Route::get('rewards/{reward}', 'RewardController@show');
-Route::post('rewards', 'RewardController@store');
-Route::put('rewards/{reward}', 'RewardController@update');
-Route::delete('rewards/{reward}', 'RewardController@delete');
+Route::post('register', 'Auth\RegisterController@register')->name('register');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');
 
-Route::get('achievements', 'AchievementController@index');
-Route::get('achievements/{achievement}', 'AchievementController@show');
-Route::post('achievements', 'AchievementController@store');
-Route::put('achievements/{achievement}', 'AchievementController@update');
-Route::delete('achievements/{achievement}', 'AchievementController@delete');
+Route::group(['middleware' => 'auth:api'], function() {
+  Route::get('rewards', 'RewardController@index');
+  Route::get('rewards/{reward}', 'RewardController@show');
+  Route::post('rewards', 'RewardController@store');
+  Route::put('rewards/{reward}', 'RewardController@update');
+  Route::delete('rewards/{reward}', 'RewardController@delete');
 
-Route::get('stories', 'StoryController@index');
-Route::get('stories/{story}', 'StoryController@show');
-Route::post('stories', 'StoryController@store');
-Route::put('stories/{story}', 'StoryController@update');
-Route::delete('stories/{story}', 'StoryController@delete');
+  Route::get('achievements', 'AchievementController@index');
+  Route::get('achievements/{achievement}', 'AchievementController@show');
+  Route::post('achievements', 'AchievementController@store');
+  Route::put('achievements/{achievement}', 'AchievementController@update');
+  Route::delete('achievements/{achievement}', 'AchievementController@delete');
+
+  Route::get('stories', 'StoryController@index');
+  Route::get('stories/{story}', 'StoryController@show');
+  Route::post('stories', 'StoryController@store');
+  Route::put('stories/{story}', 'StoryController@update');
+  Route::delete('stories/{story}', 'StoryController@delete');
+});

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Reward;
 
 class RewardController extends Controller
 {
   public function index()
   {
+    // echo(Auth::guard('api')->user());
     return Reward::all();
   }
 
