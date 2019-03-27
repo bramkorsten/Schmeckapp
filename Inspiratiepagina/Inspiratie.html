@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <body>
 
 <div class="title">
-    <h1>EX-werknemers</h1>
+    <h1>Inspiratiepagina</h1>
 </div>
 
-<div class="werknemer">
-    <h2>Henry Boerenveld</h2>
+<div class="container">
+    <div class="person-parent">
+        <div id="person" onclick="openoverlay();">
+            <h2 style="color: white;">Henry Hendrickson</h2>  
+        </div>
+        <div id="person" onclick="openoverlay();">
+            <h2 style="color: white;">Frits Peers</h2>  
+        </div>
+    </div>
+</div>
+           
+<div id="overlay">
+    <div id="text">
+        <span id="close" onclick="closeoverlay();" style='font-size:20px;'>&#10005;</span>
+        <h2 style="color: white;">Henry Hendrickson</h2>
+    </div>
 </div>
 
 </body>

@@ -1,21 +1,79 @@
+/*fonts definiëren*/
+@import "/fonts.css";
+
+p {
+    font-family: 'Montserrat-Regular';
+}
+
 h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat-Bold';
     font-size: 30px;
+    color: #3379FC;
 }
 
 h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 25px;
-    color: white;
+    font-family: 'Montserrat-Bold';
+    font-size: 20px;
+    color: #3379FC;
 }
 
+/*div's*/
 .title {
     padding-left: 5%;
 }
 
-.werknemer {
-    background-color: olive;
-    margin: 5%;
-    padding: 1%;
-    border-radius: 10px;
+.person-parent {
+    text-align: center;
 }
+
+#person {
+    display: inline-block;
+    border-radius: 16px;
+    height: 150px;
+    width: 90%;
+    background-color: #3379FC;
+    margin-bottom: 5%;
+}
+
+#person:hover {
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+  }
+  
+#overlay {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #3379FC;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+  
+#text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  #close {
+    color:white;
+  }
+
+  #close:hover {
+    cursor: pointer;
+    color:lightgray;
+  }
