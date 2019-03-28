@@ -1,1 +1,32 @@
 @import "./fonts.css";
+
+:root {
+    /*
+     * Colors
+     */
+     --donkerBlauw: #053b6e;
+     --semi-lichtBlauw: #436ca7;
+     --lichtBlauw: #3379fc;
+     /*
+     * Fonts
+     */
+    --default-font-header: "Montserrat-Bold";
+    --default-font-text: "Montserrat-Regular";
+     /*
+     * Layout & Sizes
+     */
+    --default-padding: 20px;
+     /*
+     * Animation
+     */
+     --default-transition-duration: 0.5s;
+     --default-transition-type: ease;
+     /*
+     * Media queries breakpoints
+     */
+     --screen-xs: 576px;
+     --screen-sm: 768px;
+     --screen-md: 992px;
+     --screen-lg: 1200px;
+     --screen-xl: 1376px;
+ }
