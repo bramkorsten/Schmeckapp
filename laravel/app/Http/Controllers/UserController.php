@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Validator;
 use Auth;
 use App\User;
 
@@ -18,7 +20,7 @@ class UserController extends Controller
     $xp = $request->xp;
 
     $user = User::where('id', $userId)->first();
-    $data = json_decode($user->data);
+    $data = json_decode($user->data, true);
     if (empty($data)) {
       $data = array();
     }
@@ -37,16 +39,25 @@ class UserController extends Controller
       return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
     }
 
+    $validator = Validator::make($request->all(),[
+      'user_id' => 'required|integer|exists:users,id',
+      'schmeckles' => 'required|integer',
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json($validator->errors(), 400);        
+    }
+
     $schmeckles = $request->schmeckles;
 
     $user = User::where('id', $request->user_id)->first();
-    $data = json_decode($user->data);
+    $data = json_decode($user->data, true);
     if(empty($data))
     {
       $data = array();
     }
 
-    $data['schmeckles'] = $schmeckles;
+    $data['schmeckles'] += $schmeckles;
     $user->data = json_encode($data);
     $user->save();
 
