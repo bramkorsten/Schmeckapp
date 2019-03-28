@@ -64,6 +64,41 @@ class UserController extends Controller
     return response()->json(['result' => 'isAdmin', 'user' => $user], 200);
   }
 
+  public function addAchievements(Request $request)
+  {
+    if(!$this->isAdmin())
+    {
+      return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
+    }
+
+    $validator = Validator::make($request->all(),[
+      'user_id' => 'required|integer|exists:users,id',
+      'achievement' => 'required|integer',
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json($validator->errors(), 400);        
+    }
+
+    $achievement = $request->achievement;
+
+    $user = User::where('id', $request->user_id)->first();
+    $data = json_decode($user->data, true);
+    if(empty($data))
+    {
+      $data = array();
+    }
+
+
+    //$data['achievements'] = array($achievement);
+    array_push($data['achievements'], array($achievement));
+    $user->data = json_encode($data);
+    $user->save();
+
+    return response()->json(['result' => 'isAdmin', 'user' => $user], 200);
+
+  }
+
   protected function isAdmin()
   {
     $user = Auth::guard('api')->user();
