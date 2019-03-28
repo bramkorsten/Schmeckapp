@@ -37,7 +37,7 @@ class UserController extends Controller
       return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
     }
 
-    $schmeckles = $request->schmeckles;
+    $schmeckles += $request->schmeckles;
 
     $user = User::where('id', $request->user_id)->first();
     $data = json_decode($user->data);
@@ -51,6 +51,30 @@ class UserController extends Controller
     $user->save();
 
     return response()->json(['result' => 'isAdmin', 'user' => $user], 200);
+  }
+
+  public function removeSchmeckles(Request $request)
+  {
+    if (!$this->isAdmin())
+    {
+      return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
+    }
+
+    $schmeckles -= $request->schmeckles;
+
+    $user = User::where('id', $request->user_id)->first();
+    $data = json_decode($user->data);
+    if(empty($data))
+    {
+      $data = array();
+    }
+
+    $data['schmeckles'] = $schmeckles;
+    $user->data = json_encode($data);
+    $user->save();
+
+    return response()->json(['result' => 'isAdmin', 'user' => $user], 200);
+
   }
 
   protected function isAdmin()
