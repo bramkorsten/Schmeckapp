@@ -29,13 +29,14 @@ h2 {
 }
 
 #person {
+    position: relative;
     text-align: left;
     padding: 5%;
     display: inline-block;
     border-radius: 16px;
     height: 100px;
     width: 80%;
-    background-image: linear-gradient(to bottom right, #3379FC, #7FA8F7);
+    background-color: #3379FC;
     margin-bottom: 3%;
 }
 
@@ -45,7 +46,23 @@ h2 {
 
 .container {
     width: 100%;
-  }
+}
+
+.person-info {
+    float: left;
+    width: 55%;
+}
+
+.person-info-image {
+    display: inline-block;
+    position: absolute;
+    width: 40%;
+    bottom: -4px;
+}
+
+.person-info-image-src {
+    width: 100%;
+}
   
 #overlay {
     border-top-left-radius: 25px;
@@ -58,21 +75,7 @@ h2 {
     overflow: hidden;
     width: 100%;
     height: 0;
-    transition: .2s ease;
-}
-
-#overlayorange {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #FC9F33;
-    overflow: hidden;
-    width: 100%;
-    height: 0;
-    transition: .2s ease;
+    transition: .4s ease;
 }
 
 #close {
@@ -86,14 +89,21 @@ h2 {
     cursor: pointer;
     color:lightgray;
 }
+
+.person-header {
+    width: 100%;
+    background-color: #3379FC;
+    height: 30%;
+}
   
 #content {
     margin: 0 auto;
     width: 100%;
-    color: white;
+    height: 70%;
+    background-color: white;
     font-size: 20px;
-    position: absolute;
-    top: 10%;
+    position: relative;
+    top: 35%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -101,7 +111,62 @@ h2 {
     text-align: center;
 }
 
-.text {
-    margin-top: 5%;
+.person-image {
+    height: 26%;
+    left: 15%;
+    bottom: 70%;
+    position: absolute;
 }
+
+.person-heading {
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: left;
+}
+
+.person-text {
+    padding-left: 5%;
+    padding-right: 5%;
+    color: gray;
+    font-size: 18px;
+    text-align: left;
+}
+
+.text {
+    padding-left: 5%;
+    padding-top: 2%;
+    text-align: left;
+}
+
+/*media queries*/
+@media only screen and (min-width: 800px) {
+    h2 {
+        font-family: 'Montserrat-Bold';
+        font-size: 30px;
+        color: #3379FC;
+    }
+
+    p {
+        font-family: 'Montserrat-Regular';
+        color: white;
+        font-size: 20px;
+    }
+
+    .person-info {
+        margin-bottom: 20px;
+        float: left;
+        width: 70%;
+    }
+    
+    .person-info-image {
+        display: inline-block;
+        position: absolute;
+        width: 25%;
+        bottom: -4px;
+    }
+
+    .person-info-image-src {
+        width: 100%;
+    }
+  }
 
