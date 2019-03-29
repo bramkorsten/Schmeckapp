@@ -1,1 +1,57 @@
 @import "../../../globals/variables.css";
+
+.header {
+    display: flex;
+    width: 100%;
+    height: var(--default-header-height);
+    padding: var(--default-padding-mobile);
+    box-sizing: border-box;
+    position: sticky;
+    z-index: 2;
+    background-color: var(--primary-background-color);
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--lightBlue);
+}
+
+.header * {
+    height: 100%;
+    width: auto;
+}
+
+.wallet, .backButton {
+    font-family: "Montserrat-Bold";
+    line-height: 30px;
+}
+
+.wallet {
+    color: var(--primary-font-color);
+    display: flex;
+}
+
+.wallet .schmeckleCount {
+    margin-left: 10px !important;
+}
+
+.header .title {
+    font-family: "Montserrat-Bold";
+    margin-left: auto;
+    color: var(--secondary-font-color);
+    line-height: 30px;
+    width: max-content;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.header :last-child{
+    margin-left: auto;
+}
+
+.hamburger {
+    padding: 0 !important;
+}

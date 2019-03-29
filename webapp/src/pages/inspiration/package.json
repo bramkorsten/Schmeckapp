@@ -1,0 +1,6 @@
+{
+    "name": "Inspiration",
+    "version": "0.0.1",
+    "main": "./Inspiration.js",
+    "private": true
+}
