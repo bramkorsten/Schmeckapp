@@ -1,0 +1,6 @@
+{
+    "name": "Achievements",
+    "version": "0.0.1",
+    "main": "./Achievements.js",
+    "private": true
+}

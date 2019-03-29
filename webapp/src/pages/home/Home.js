@@ -2,11 +2,16 @@ import React, { PureComponent } from "react";
 import "./Home.css";
 
 class Home extends PureComponent {
-    render() {    
+
+    componentWillMount(){
+        this.props.editHeader(true, "");
+    }
+
+    render() {  
         return (
-            <div>
+            <main>
                 HOME
-            </div>
+            </main>
         );
     }
 }

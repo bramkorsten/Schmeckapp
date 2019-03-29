@@ -1,0 +1,6 @@
+{
+    "name": "Rewards",
+    "version": "0.0.1",
+    "main": "./Rewards.js",
+    "private": true
+}

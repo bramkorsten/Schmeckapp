@@ -4,9 +4,9 @@ import "./NoMatch.css";
 class NoMatch extends PureComponent {
     render() {    
         return (
-            <div>
+            <main>
                 404
-            </div>
+            </main>
         );
     }
 }
