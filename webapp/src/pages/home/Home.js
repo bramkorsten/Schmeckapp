@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import "./Home.css";
+import profilePhoto from "../../images/profilePhoto.jpg";
 
 class Home extends PureComponent {
 
@@ -10,7 +11,12 @@ class Home extends PureComponent {
     render() {  
         return (
             <main>
-                HOME
+                <figure className={"profileInfo"}>
+                    <img src={profilePhoto} alt={"profilePicture"} />
+                    <figcaption className={"profileName"}>
+                        <h1>Sam Koppens</h1>
+                    </figcaption>
+                </figure>
             </main>
         );
     }
