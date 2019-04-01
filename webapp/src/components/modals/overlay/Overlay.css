@@ -1,12 +1,12 @@
 @import "../../../globals/variables.css";
 
 nav {
-  right: -50%;
-  position: fixed;
+  transform: translate(200%, 0px);
+  position: absolute;
   background-color: white;
   height: calc(100% - var(--default-header-height));
   box-sizing: border-box;
-  padding: var(--default-padding-mobile);
+  padding: var(--default-padding-header);
   width: 50%;
   max-width: 400px;
   transition: var(--default-transition-duration) var(--default-transition-type);
@@ -25,5 +25,5 @@ nav ul {
 }
 
 .active {
-  right: 0;
+  transform: translate(100%, 0px);
 }

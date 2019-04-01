@@ -22,8 +22,9 @@
      * Layout & Sizes
      */
     --default-padding: 20px;
-    --default-padding-mobile: 10px;
-    --default-header-height: 50px;
+    --default-padding-header: 20px;
+    --default-padding-mobile: 20px;
+    --default-header-height: 70px;
      /*
      * Animation
      */

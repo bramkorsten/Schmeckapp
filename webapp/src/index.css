@@ -6,7 +6,9 @@ html, body, #root {
 }
 
 #root {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: unset;
+  position: relative;
 }
 
 body {
@@ -23,13 +25,33 @@ body {
 main {
   background-color: white;
   box-sizing: border-box;
-  height: calc(100% - var(--default-header-height));
-  padding: var(--default-padding-mobile);
+  min-height: calc(100% - var(--default-header-height));
+  height: auto;
 }
 
 h1 {
   font-family: "Montserrat-Bold";
   color: var(--secondary-font-color);
+  font-size: 30px;
+}
+
+h2 {
+  font-family: "Montserrat-Bold";
+  color: var(--secondary-font-color);
+  font-size: 20px;
+  margin: 0;
+}
+
+h4 {
+  font-family: "Montserrat-Regular";
+  color: var(--primary-font-color);
+  font-size: 20px;
+  margin: 15px;
+}
+
+p {
+  font-family: "Montserrat-Regular";
+  color: var(--primary-font-color);
 }
 
 code {

@@ -2,8 +2,8 @@
 
 .profileInfo {
   max-width: 400px;
-  width: 80%;
-  margin: 0 auto;
+  width: calc(100% - calc(var(--default-padding-mobile) * 2));
+  margin: 0 auto calc(var(--default-padding-mobile) * 2) auto;
   text-align: center;
 }
 
@@ -17,4 +17,46 @@ figure img {
   margin: 0 auto;
   width: 80%;
   height: auto;
+}
+
+.levelContainer {
+  width: calc(100% - calc(var(--default-padding-mobile) * 2));
+  text-align: center;
+  margin: 0 auto calc(var(--default-padding-mobile) * 2) auto;
+  max-width: 400px;
+}
+
+.progressbar-outer {
+    background-color: var(--secondary-background-color);
+    height: 20px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.progressbar-inner {
+    background-color: var(--lightBlue);
+    height: 100%;
+    position: relative;
+    width: 80%;
+}
+
+.xpCounter {
+    color: var(--lightBlue);
+}
+
+.rewardsContainer {
+  background-color: var(--secondary-background-color);
+  width: 100%;
+  padding: var(--default-padding-mobile);
+  height: 100px;
+  box-sizing: border-box;
+  margin: 0 auto calc(var(--default-padding-mobile) * 2) auto;
+}
+
+.achievementsContainer {
+  width: 100%;
+  padding: var(--default-padding-mobile);
+  height: 100px;
+  box-sizing: border-box;
+  margin: 0 auto calc(var(--default-padding-mobile) * 2) auto;
 }

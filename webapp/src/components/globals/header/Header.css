@@ -4,7 +4,7 @@
     display: flex;
     width: 100%;
     height: var(--default-header-height);
-    padding: var(--default-padding-mobile);
+    padding: var(--default-padding-header);
     box-sizing: border-box;
     position: sticky;
     z-index: 2;
