@@ -1,0 +1,29 @@
+@import "../../../globals/variables.css";
+
+nav {
+  transform: translate(200%, 0px);
+  position: absolute;
+  background-color: white;
+  height: calc(100% - var(--default-header-height));
+  box-sizing: border-box;
+  padding: var(--default-padding-header);
+  width: 50%;
+  max-width: 400px;
+  transition: var(--default-transition-duration) var(--default-transition-type);
+  z-index: 1;
+}
+
+nav ul {
+  list-style: none;
+  font-family: "Montserrat-Bold";
+  text-align: right;
+  line-height: 50px;
+}
+
+.logout {
+  color: var(--red);
+}
+
+.active {
+  transform: translate(100%, 0px);
+}
