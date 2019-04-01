@@ -4,13 +4,17 @@ import "./Store.css";
 class Store extends PureComponent {
 
     componentWillMount(){
-        this.props.editHeader(false, "winkel");
+        this.props.editHeader(false, "Winkel");
     }
 
-    render() {    
+    render() {
         return (
             <main>
-                WINKEL
+              <div className="store_cards-contain">
+                <div className="store-card-wrap">
+
+                </div>
+              </div>
             </main>
         );
     }

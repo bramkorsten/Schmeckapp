@@ -33,7 +33,7 @@ class Inspiration extends PureComponent {
                                 <p class="widthp">Lorem ipsum dolor sit amet, consectetur </p>
                             </div>
                             <div class="person-info-image">
-                                <img class="person-info-image-src" src={laptopman2} />
+                                <img class="person-info-image-src" alt="" src={laptopman2} />
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ class Inspiration extends PureComponent {
                                 <p class="widthp">Lorem ipsum dolor sit amet, consectetur </p>
                             </div>
                             <div class="person-info-image">
-                                <img class="person-info-image-src" src={ober} />
+                                <img class="person-info-image-src" alt="" src={ober} />
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ class Inspiration extends PureComponent {
                 <div id="overlay">
                     <div class="person-header">
                         <span id="close" onClick={this.closeoverlay}>&#10005;</span>
-                        <img class="person-image" src={laptopman} />
+                        <img class="person-image" alt="" src={laptopman} />
                     </div>
 
                     <div id="content">

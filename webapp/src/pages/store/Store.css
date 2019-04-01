@@ -1,1 +1,10 @@
 @import "../../globals/variables.css";
+
+.store_cards-contain {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.store-card-wrap {
+  position: relative;
+}
