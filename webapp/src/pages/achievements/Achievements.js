@@ -3,15 +3,31 @@ import "./Achievements.css";
 
 class Achievements extends PureComponent {
 
-    componentWillMount(){
+    componentWillMount() {
         this.props.editHeader(false, "Prestaties");
     }
 
-    render() {    
+    render() {
         return (
             <main>
-                PRESTATIES
-            </main>
+                <div className="parent-achievement">
+                    <div className="achievement">
+
+                    </div>
+                    <div className="achievement">
+
+                    </div>
+                    <div className="achievement">
+
+                    </div>
+                    <div className="achievement">
+
+                    </div>
+                    <div className="achievement">
+
+                    </div>
+                </div>
+            </main >
         );
     }
 }

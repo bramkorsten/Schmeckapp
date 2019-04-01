@@ -6,8 +6,8 @@
 
 .widthp {
     width: 100%;
+    color: white;
 }
-
 
 /*div's*/
 .title {
@@ -47,7 +47,7 @@
     display: inline-block;
     position: absolute;
     width: 40%;
-    bottom: -4px;
+    bottom: -3px;
 }
 
 .person-info-image-src {
@@ -131,7 +131,7 @@
 }
 
 /*media queries*/
-@media only screen and (min-width: --screen-sm) {
+@media only screen and (min-width: 800px) {
     .person-info {
         margin-bottom: 20px;
         float: left;
@@ -141,8 +141,8 @@
     .person-info-image {
         display: inline-block;
         position: absolute;
-        width: 25%;
-        bottom: -4px;
+        width: 28%;
+        bottom: -3px;
     }
 
     .person-info-image-src {
