@@ -20,7 +20,7 @@ class Home extends PureComponent {
         <div className={"levelContainer"}>
           <h4>Level 5</h4>
           <div className={"progressbar-outer"}>
-            <div className={"progressbar-inner"} />
+            <div className={"progressbar-inner"} />{" "}
           </div>
           <p className={"xpCounter"}>2070/3850 xp</p>
         </div>

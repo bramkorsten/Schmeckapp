@@ -1,23 +1,5 @@
 @import "../../globals/variables.css";
 
-p {
-    font-family: 'Montserrat-Regular';
-    color: white;
-    font-size: 10px;
-}
-
-h1 {
-    font-family: 'Montserrat-Bold';
-    font-size: 30px;
-    color: #3379FC;
-}
-
-h2 {
-    font-family: 'Montserrat-Bold';
-    font-size: 15px;
-    color: #3379FC;
-}
-
 .whiteh2 {
     color: white;
 }
@@ -149,19 +131,7 @@ h2 {
 }
 
 /*media queries*/
-@media only screen and (min-width: 800px) {
-    h2 {
-        font-family: 'Montserrat-Bold';
-        font-size: 30px;
-        color: #3379FC;
-    }
-
-    p {
-        font-family: 'Montserrat-Regular';
-        color: white;
-        font-size: 20px;
-    }
-
+@media only screen and (min-width: --screen-sm) {
     .person-info {
         margin-bottom: 20px;
         float: left;
