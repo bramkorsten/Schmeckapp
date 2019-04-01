@@ -7,7 +7,7 @@ import ober from "../../images/ober.png";
 class Inspiration extends PureComponent {
 
     componentWillMount() {
-        this.props.editHeader(false, "inspiratie");
+        this.props.editHeader(false, "Inspiratie");
     }
 
     openoverlay = () => {

@@ -4,7 +4,7 @@ import "./Rewards.css";
 class Rewards extends PureComponent {
 
     componentWillMount(){
-        this.props.editHeader(false, "beloningen");
+        this.props.editHeader(false, "Beloningen");
     }
 
     render() {    

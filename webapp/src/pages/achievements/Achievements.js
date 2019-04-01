@@ -4,7 +4,7 @@ import "./Achievements.css";
 class Achievements extends PureComponent {
 
     componentWillMount(){
-        this.props.editHeader(false, "prestaties");
+        this.props.editHeader(false, "Prestaties");
     }
 
     render() {    
