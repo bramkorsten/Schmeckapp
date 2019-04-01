@@ -41,6 +41,7 @@ class App extends PureComponent {
 
   render() {
     const { wallet, title, activeHamburger } = this.state;
+    const apiUrl = 'http://127.0.0.1:8000/api/';
     return (
       <BrowserRouter>
         <Fragment>
@@ -56,7 +57,7 @@ class App extends PureComponent {
             <Route
               exact
               path="/"
-              render={() => <Home editHeader={this.editHeader} />}
+              render={() => <Home apiUrl={apiUrl} editHeader={this.editHeader} />}
             />
             <Route
               exact

@@ -26,7 +26,7 @@ main {
   background-color: white;
   box-sizing: border-box;
   margin-top: var(--default-padding-mobile);
-  min-height: calc(100% - var(--default-header-height));
+  min-height: calc(100% - var(--default-header-height) - var(--default-padding-mobile));
   height: auto;
 }
 

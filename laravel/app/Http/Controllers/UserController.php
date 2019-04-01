@@ -10,6 +10,14 @@ use App\User;
 
 class UserController extends Controller
 {
+
+  public function show()
+  {
+    $user = Auth::guard('api')->user();
+    $user->data = \json_decode($user->data);
+    return $user;
+  }
+
   public function addXP(Request $request)
   {
     if (!$this->isAdmin()) {
@@ -45,7 +53,7 @@ class UserController extends Controller
     ]);
 
     if ($validator->fails()) {
-      return response()->json($validator->errors(), 400);        
+      return response()->json($validator->errors(), 400);
     }
 
     $schmeckles = $request->schmeckles;
@@ -77,7 +85,7 @@ class UserController extends Controller
     ]);
 
     if ($validator->fails()) {
-      return response()->json($validator->errors(), 400);        
+      return response()->json($validator->errors(), 400);
     }
 
     $achievement = $request->achievement;

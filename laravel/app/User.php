@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'unique_id', 'first_name', 'last_name', 'email', 'password',
+        'unique_id', 'first_name', 'last_name', 'email', 'password', 'img',
     ];
 
     /**
@@ -44,5 +44,21 @@ class User extends Authenticatable
         $this->save();
 
         return $this->api_token;
+    }
+
+    public function generateBaseData()
+    {
+        $data = array(
+          'level' => 1,
+          'schmeckels' => 100,
+          'achievements' => array(),
+          'xp' => 0,
+          'notifications' => array()
+        );
+
+        $this->data = \json_encode($data);
+        $this->save();
+
+        return $this->data;
     }
 }
