@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import "./Home.css";
 import profilePhoto from "../../images/profilePhoto.jpg";
+import { Link } from "react-router-dom";
 
 class Home extends PureComponent {
   componentWillMount() {
@@ -26,11 +27,27 @@ class Home extends PureComponent {
         </div>
 
         <section className={"rewardsContainer"}>
-          <h2>Beloningen</h2>
+          <div className={"rewardsContainerHeader"}>
+            <h2>Beloningen</h2>
+            <Link to={"/beloningen"}>
+              <h2 className={"rewardsLink"}>Alle</h2>
+            </Link>
+          </div>
+          <div className={"rewards"}>
+          
+          </div>
         </section>
 
         <section className={"achievementsContainer"}>
-          <h2>Prestaties</h2>
+          <div className={"rewardsContainerHeader"}>
+            <h2>Prestaties</h2>
+            <Link to={"/prestaties"}>
+              <h2 className={"rewardsLink"}>Alle</h2>
+            </Link>
+          </div>
+          <div className={"rewards"}>
+
+          </div>
         </section>
       </main>
     );
