@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import { StoreItem } from "../../components/elements";
 import "./Rewards.css";
 import taart from "../../images/taart.jpg";
 import { StoreItem, Button } from "../../components/elements";

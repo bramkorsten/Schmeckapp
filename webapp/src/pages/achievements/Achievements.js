@@ -1,31 +1,37 @@
 import React, { PureComponent } from "react";
 import "./Achievements.css";
 import trophy from "../../images/trophy.png";
+import { Overlaytrophy } from "../../components/elements";
 
 class Achievements extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+        };
+      }
 
     componentWillMount() {
         this.props.editHeader(false, "Prestaties");
     }
 
-    openoverlay = () => {
-        document.getElementById("overlay-unlocked").style.height = "calc(100vh - 70px)";
+    openModal = event => {
+        const index = event.target.parentNode.id;
+        this.setState({
+            number: index,
+            active: true
+        })
     }
 
-    closeoverlay = () => {
-        document.getElementById("overlay-unlocked").style.height = "0%";
-    }
-
-    openoverlaylocked = () => {
-        document.getElementById("overlay-locked").style.height = "calc(100vh - 70px)";
-    }
-
-    closeoverlaylocked = () => {
-        document.getElementById("overlay-locked").style.height = "0%";
+    closeModal = () => {
+        this.setState({
+            active: false
+        })
     }
 
     render() {
         const { achievements } = this.props;
+        const { number, active } = this.state;
         return (
             <main>
                 <div className="page-title-trophy">
@@ -65,9 +71,9 @@ class Achievements extends PureComponent {
                             //true
                             achievements.map(
                                 //for each every achievement (child in achievements)
-                                achievement => (
-                                    <div className="trophy-locked" onClick={this.openoverlaylocked}>
-                                        <div className="content">
+                                (achievement, index) => (
+                                    <div className="trophy-locked" onClick={this.openModal}>
+                                        <div id={index} className="content">
                                             <img class="trophy-image" alt="" src={trophy} />
                                         </div>
                                     </div>
@@ -80,7 +86,7 @@ class Achievements extends PureComponent {
                     </div>
                 </div>
 
-                <div id="overlay-unlocked">
+                {/* <div id="overlay-unlocked">
                     <div className="trophy-header">
                         <span id="close" onClick={this.closeoverlay}>&#10005;</span>
                         <img className="trophy-image-header" alt="" src={trophy} />
@@ -92,9 +98,9 @@ class Achievements extends PureComponent {
                             <p className="trophy-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                <div id="overlay-locked">
+                {/* <div id="overlay-locked">
                     <div className="trophy-header-locked">
                         <span id="close" onClick={this.closeoverlaylocked}>&#10005;</span>
                         <img className="trophy-image-header" alt="" src={trophy} />
@@ -119,7 +125,9 @@ class Achievements extends PureComponent {
                     }
 
 
-                </div>
+                </div> */}
+
+                <Overlaytrophy closeModal={this.closeModal} active={active} achievement={achievements && achievements[number]} />
 
             </main >
         );
