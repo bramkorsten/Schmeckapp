@@ -3,3 +3,4 @@
  */
 export { default as Example } from './example/Example';
 export { default as StoreItem } from './storeItem/StoreItem';
+export { default as Badge } from './badge/Badge';

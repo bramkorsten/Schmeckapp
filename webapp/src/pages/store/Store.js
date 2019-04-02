@@ -15,9 +15,9 @@ class Store extends PureComponent {
         return (
             <main>
               <div className="store_cards-contain">
-              <StoreItem image={koffie} title="Koffie" amount="300" />
-              <StoreItem image={taart} title="Taart" amount="300" />
-              <StoreItem image={voetbaltafel} title="Voetbaltafel" amount="150.000" />
+              <StoreItem image={koffie} title="Koffie" itemId="koffie" amount="300" />
+              <StoreItem image={taart} title="Taart" itemId="taart" amount="300" />
+              <StoreItem image={voetbaltafel} title="Voetbaltafel" itemId="voetbaltafel" amount="10000" />
               </div>
             </main>
         );

@@ -1,6 +1,10 @@
 import React, { PureComponent } from "react";
 import "./Home.css";
 import profilePhoto from "../../images/profilePhoto.jpg";
+import taart from "../../images/taart.jpg";
+import voetbaltafel from "../../images/voetbaltafel.jpg";
+import koffie from "../../images/koffie.jpg";
+import { Badge } from "../../components/elements";
 import { Link } from "react-router-dom";
 
 class Home extends PureComponent {
@@ -42,42 +46,9 @@ class Home extends PureComponent {
             </Link>
           </div>
           <div className={"badges"}>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
+            <Badge badgeImage={taart} title={"Taart"} />
+            <Badge badgeImage={voetbaltafel} title={"Voetbaltafel"} />
+            <Badge badgeImage={koffie} title={"Koffie"} />
           </div>
         </section>
 
@@ -89,12 +60,11 @@ class Home extends PureComponent {
             </Link>
           </div>
           <div className={"badges"}>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
           </div>
         </section>
       </main>
