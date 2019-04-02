@@ -25,7 +25,7 @@ class Button extends PureComponent {
     /**
      * Defines what the button should do
      */
-    variant: PropTypes.oneOf(["positive", "negative", "neutral"])
+    variant: PropTypes.oneOf(["positive", "negative", "neutral", "invert"])
   };
 
   static defaultProps = {

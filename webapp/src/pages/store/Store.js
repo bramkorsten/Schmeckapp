@@ -7,6 +7,7 @@ import voetbaltafel from "../../images/voetbaltafel.jpg";
 
 class Store extends PureComponent {
 
+
     componentWillMount(){
         this.props.editHeader(false, "Winkel");
     }

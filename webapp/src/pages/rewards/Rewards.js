@@ -1,9 +1,8 @@
 import React, { PureComponent } from "react";
 import { StoreItem } from "../../components/elements";
 import "./Rewards.css";
-import koffie from "../../images/koffie.jpg";
 import taart from "../../images/taart.jpg";
-import voetbaltafel from "../../images/voetbaltafel.jpg";
+import { StoreItem, Button } from "../../components/elements";
 
 class Rewards extends PureComponent {
 
@@ -14,10 +13,13 @@ class Rewards extends PureComponent {
     render() {
         return (
             <main>
-                <div className="store_cards-contain">
-                    <StoreItem image={koffie} title="Koffie" itemId="koffie"/>
-                    <StoreItem image={taart} title="Taart" itemId="taart"/>
-                    <StoreItem image={voetbaltafel} title="Voetbaltafel" itemId="voetbaltafel"/>
+                <div className={"rewardsViewer"}>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
                 </div>
             </main>
         );
