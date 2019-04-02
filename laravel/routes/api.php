@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth:api'], function() {
   Route::post('user/schmeckles', 'UserController@addSchmeckles');
   Route::post('user/achievements', 'UserController@addAchievements');
   Route::post('user/rewards', 'UserController@addRewards');
+  Route::post('user/spendReward', 'UserController@removeRewards');
 
   Route::get('rewards', 'RewardController@index');
   Route::get('rewards/{reward}', 'RewardController@show');

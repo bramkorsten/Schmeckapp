@@ -96,7 +96,7 @@ class UserController extends Controller
       $data = array();
     }
 
-    array_push($data['achievements'], array($achievement));
+    array_push($data['achievements'], $achievement);
     $user->data = json_encode($data);
     $user->save();
 
@@ -129,7 +129,49 @@ class UserController extends Controller
       $data = array();
     }
 
-    array_push($data['rewards'], array($reward));
+    array_push($data['rewards'], $reward);
+    $user->data = json_encode($data);
+    $user->save();
+
+    return response()->json(['result' => 'isAdmin', 'user' => $user], 200);
+  }
+
+  public function removeRewards(Request $request)
+  {
+    if(!$this->isAdmin())
+    {
+      return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
+    }
+
+    $validator = Validator::make($request->all(),[
+      'user_id' => 'required|integer|exists:users,id',
+      'reward' => 'required|integer',
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json($validator->errors(), 400);
+    }
+
+    $reward = $request->reward;
+
+    $user = User::where('id', $request->user_id)->first();
+    $data = json_decode($user->data, true);
+    if(empty($data))
+    {
+      $data = array();
+    }
+
+
+    foreach ($data['rewards'] as $key => $value)
+    {
+      if($value === $reward)
+      {
+        unset($data['rewards'][$key]);
+        break;
+      }
+    }
+    $data['rewards'] = array_values($data['rewards']);
+    
     $user->data = json_encode($data);
     $user->save();
 
