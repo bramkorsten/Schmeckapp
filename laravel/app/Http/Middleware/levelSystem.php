@@ -23,12 +23,14 @@ class levelSystem
 
         $currentXp = $userdata['xp'];
         $currentLvl = $userdata['level'];
-        $xpRequired = $this->calculateXpForNextLevel($currentLvl);
+        $xpRequired = $this->calculateXpForLevel($currentLvl + 1);
         $userdata['xp_required'] = $xpRequired;
+        $userdata['xp_currentLvl'] = $this->calculateXpForLevel($currentLvl);
 
         if ($currentXp >= $xpRequired) {
           $userdata['level'] = $currentLvl + 1;
-          $userdata['xp_required'] = $this->calculateXpForNextLevel($userdata['level']);
+          $userdata['xp_required'] = $this->calculateXpForLevel($userdata['level'] + 1);
+          $userdata['xp_currentLvl'] = $this->calculateXpForLevel($userdata['level']);
         }
 
         $user->data = \json_encode($userdata);
@@ -37,15 +39,13 @@ class levelSystem
         return $next($request);
     }
 
-    protected function calculateXpForNextLevel($currentLvl)
+    protected function calculateXpForLevel($level)
     {
       // Algorithm for calculating xp required
 
-      $nextLvl = $currentLvl + 1;
-
       $multiplier = 1;
 
-      $xpRequired = pow(($nextLvl * 4), 2.1) + 81.621;
+      $xpRequired = pow(($level * 4), 2.1) + 81.621;
       $xpRequired = round($xpRequired * $multiplier);
 
       return($xpRequired);

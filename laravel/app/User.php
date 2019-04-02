@@ -53,6 +53,7 @@ class User extends Authenticatable
           'schmeckels' => 100,
           'achievements' => array(),
           'xp' => 100,
+          'xp_currentLvl' => 100,
           'rewards' => array(),
           'notifications' => array()
         );
