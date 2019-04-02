@@ -17,11 +17,15 @@ class StoreItem extends PureComponent {
     return variables;
   }
 
+  itemMenu = () => {
+    alert(this.props.itemId);
+  }
+
   render() {
-    const {amount, title, image} = this.props;
+    const {amount, title, image, itemId} = this.props;
     return (
         //return your html here
-          <div className="store-card-wrap">
+          <div className="store-card-wrap" data-item-id={itemId} onClick={this.itemMenu}>
             <img className="card-wall-img" src={image} alt="" />
             <div className="card-content">
               <h3>{title}</h3>
