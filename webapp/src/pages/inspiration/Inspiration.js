@@ -11,7 +11,7 @@ class Inspiration extends PureComponent {
     }
 
     openoverlay = () => {
-        document.getElementById("overlay").style.height = "100%";
+        document.getElementById("overlay").style.height = "calc(100vh - 70px)";
     }
 
     closeoverlay = () => {
@@ -34,6 +34,20 @@ class Inspiration extends PureComponent {
                             </div>
                             <div class="person-info-image">
                                 <img class="person-info-image-src" alt="" src={laptopman2} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="person-parent">
+                        <div id="person" onClick={this.openoverlay}>
+                            <div class="person-info">
+                                <h2 class="whiteh2">Frits van der Peersen</h2>
+                                <p class="widthp">Lorem ipsum dolor sit amet, consectetur </p>
+                            </div>
+                            <div class="person-info-image">
+                                <img class="person-info-image-src" alt="" src={ober} />
                             </div>
                         </div>
                     </div>

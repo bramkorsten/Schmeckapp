@@ -19,7 +19,18 @@ class App extends PureComponent {
       wallet: true,
       title: "",
       activeHamburger: false,
+      profile: {
+        first_name: "",
+        last_name: "",
+        data: {
+          schmeckels: 0
+        }
+      }
     };
+  }
+
+  componentDidMount() {
+    this.fetchData();
   }
 
   activateHamburger = () => {
@@ -39,25 +50,53 @@ class App extends PureComponent {
     });
   };
 
+  fetchData = () => {
+    const apiUrl = "http://127.0.0.1:8000/api/";
+    fetch(apiUrl + "user", {
+      method: "GET",
+      headers: new Headers({
+        Accept: "application/json",
+        Authorization:
+          "Bearer qo5xIHw4EpczFTgYES1TcCAwb4c6pwIt6QaCb6jmNNobplyRqkWIU3R3btVV",
+        "Content-Type": "application/x-www-form-urlencoded"
+      })
+    })
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            profile: result
+          });
+          console.log(result);
+        },
+        error => {
+          console.error(error);
+        }
+      );
+  };
+
   render() {
-    const { wallet, title, activeHamburger } = this.state;
-    const apiUrl = 'http://127.0.0.1:8000/api/';
+    const { wallet, title, activeHamburger, profile } = this.state;
+
     return (
       <BrowserRouter>
         <Fragment>
           <Header
             wallet={wallet}
             title={title}
-            schmeckleCount={570}
+            schmeckleCount={profile.data.schmeckels}
             setHamburgerActive={this.activateHamburger}
             active={activeHamburger}
           />
-          <Overlay hamburgerFunction={this.activateHamburger} active={activeHamburger} />
+          <Overlay
+            hamburgerFunction={this.activateHamburger}
+            active={activeHamburger}
+          />
           <Switch>
             <Route
               exact
               path="/"
-              render={() => <Home apiUrl={apiUrl} editHeader={this.editHeader} />}
+              render={() => <Home profile={profile} editHeader={this.editHeader} />}
             />
             <Route
               exact
