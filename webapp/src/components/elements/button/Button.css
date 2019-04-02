@@ -23,3 +23,8 @@ button {
 .neutral {
     background-color: var(--lightBlue);
 }
+
+.invert {
+    background-color: transparent;
+    color: var(--lightBlue);
+}
