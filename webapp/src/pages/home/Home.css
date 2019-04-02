@@ -37,15 +37,26 @@ figure img {
     overflow: hidden;
 }
 
-.progressbar-inner {
+#progressbar-inner {
     background-color: var(--lightBlue);
     height: 100%;
     position: relative;
-    width: 80%;
+    width: 0%;
+    transition: var(--default-transition-duration) var(--default-transition-type);
+}
+
+.xpData {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.xpData p {
+  color: var(--secondary-font-color);
 }
 
 .xpCounter {
-    color: var(--lightBlue);
+    color: var(--lightBlue) !important;
 }
 
 .rewardsContainer {

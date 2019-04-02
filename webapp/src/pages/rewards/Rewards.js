@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import "./Rewards.css";
+import { Button } from "../../components/elements";
 
 class Rewards extends PureComponent {
 
