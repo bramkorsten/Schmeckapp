@@ -23,7 +23,7 @@ Route::post('login', 'Auth\LoginController@login');
 Route::group(['middleware' => 'auth:api'], function() {
   Route::post('logout', 'Auth\LoginController@logout');
 
-  Route::get('user', 'UserController@show');
+  Route::get('user', 'UserController@show')->middleware('levelSystem');
   Route::post('user/xp', 'UserController@addXP');
   Route::post('user/schmeckles', 'UserController@addSchmeckles');
   Route::post('user/achievements', 'UserController@addAchievements');
