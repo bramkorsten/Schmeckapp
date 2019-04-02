@@ -100,13 +100,27 @@ class Achievements extends PureComponent {
                         <img className="trophy-image-header" alt="" src={trophy} />
                     </div>
 
-                    <div id="content">
-                        <div className="text">
-                            <h1 className="trophy-heading">Prestatie</h1>
-                            <p className="trophy-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                    </div>
+                    {achievements ?
+                        //true
+                        achievements.map(
+                            //for each every achievement (child in achievements)
+                            achievement => (
+                                <div id="content">
+                                    <div className="text">
+                                        <h1 className="trophy-heading">{achievement.name}</h1>
+                                        <p className="trophy-text">{achievement.description}</p>
+                                    </div>
+                                </div>
+                            )
+                        )
+                        :
+                        //false
+                        console.log("wait a minute...")
+                    }
+
+
                 </div>
+
             </main >
         );
     }
