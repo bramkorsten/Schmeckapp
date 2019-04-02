@@ -66,7 +66,7 @@ class User extends Authenticatable
 
     public function onLevelUp() {
       $userdata = json_decode($this->data, true);
-      
+
       $this->addSchmeckels($userdata);
 
     }
@@ -81,5 +81,17 @@ class User extends Authenticatable
 
       $this->data = json_encode($userdata);
       $this->save();
+    }
+
+    public function addDayWorked() {
+      
+    }
+
+    public function isAdmin()
+    {
+      if ($this->type === 2) {
+        return true;
+      }
+      return false;
     }
 }

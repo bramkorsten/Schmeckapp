@@ -19,7 +19,8 @@ class UserController extends Controller
 
   public function addXP(Request $request)
   {
-    if (!$this->isAdmin()) {
+    $user = Auth::guard('api')->user();
+    if (!$user->isAdmin()) {
       return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
     }
 
@@ -41,7 +42,8 @@ class UserController extends Controller
 
   public function addSchmeckles(Request $request)
   {
-    if(!$this->isAdmin())
+    $user = Auth::guard('api')->user();
+    if(!$user->isAdmin())
     {
       return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
     }
@@ -73,7 +75,8 @@ class UserController extends Controller
 
   public function addAchievements(Request $request)
   {
-    if(!$this->isAdmin())
+    $user = Auth::guard('api')->user();
+    if(!$user->isAdmin())
     {
       return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
     }
@@ -106,7 +109,8 @@ class UserController extends Controller
 
   public function addRewards(Request $request)
   {
-    if(!$this->isAdmin())
+    $user = Auth::guard('api')->user();
+    if(!$user->isAdmin())
     {
       return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
     }
@@ -138,7 +142,8 @@ class UserController extends Controller
 
   public function removeRewards(Request $request)
   {
-    if(!$this->isAdmin())
+    $user = Auth::guard('api')->user();
+    if(!$user->isAdmin())
     {
       return response()->json(['error' => 'Not Authorized. You need to be an admin.'], 401);
     }
@@ -171,19 +176,10 @@ class UserController extends Controller
       }
     }
     $data['rewards'] = array_values($data['rewards']);
-    
+
     $user->data = json_encode($data);
     $user->save();
 
     return response()->json(['result' => 'isAdmin', 'user' => $user], 200);
-  }
-
-  protected function isAdmin()
-  {
-    $user = Auth::guard('api')->user();
-    if ($user->type === 2) {
-      return true;
-    }
-    return false;
   }
 }

@@ -47,4 +47,7 @@ Route::group(['middleware' => 'auth:api'], function() {
   Route::post('stories', 'StoryController@store');
   Route::put('stories/{story}', 'StoryController@update');
   Route::delete('stories/{story}', 'StoryController@delete');
+
+  Route::post('cycle/update', 'CycleController@update');
+  Route::post('cycle/addDay', 'CycleController@addDay');
 });
