@@ -118,6 +118,7 @@ class UserController extends Controller
     $validator = Validator::make($request->all(),[
       'user_id' => 'required|integer|exists:users,id',
       'reward' => 'required|integer',
+      'price' => 'required|integer',
     ]);
 
     if ($validator->fails()) {
@@ -125,12 +126,22 @@ class UserController extends Controller
     }
 
     $reward = $request->reward;
+    $price = $request->price;
 
     $user = User::where('id', $request->user_id)->first();
     $data = json_decode($user->data, true);
     if(empty($data))
     {
       $data = array();
+    }
+
+    if($price > $data['schmeckels'])
+    {
+      return response()->json(['error' => 'You do not have enough schmeckels :('], 400);
+    }
+    else
+    {
+      $data['schmeckels'] -= $price;
     }
 
     array_push($data['rewards'], $reward);

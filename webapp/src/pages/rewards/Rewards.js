@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
 import "./Rewards.css";
+import taart from "../../images/taart.jpg";
+import { StoreItem, Button } from "../../components/elements";
 
 class Rewards extends PureComponent {
 
@@ -10,7 +12,14 @@ class Rewards extends PureComponent {
     render() {    
         return (
             <main>
-                BELONINGEN
+                <div className={"rewardsViewer"}>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                    <StoreItem title={"Taart"} image={taart}/>
+                </div>
             </main>
         );
     }

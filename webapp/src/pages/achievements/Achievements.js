@@ -25,6 +25,7 @@ class Achievements extends PureComponent {
     }
 
     render() {
+        const { achievements } = this.props;
         return (
             <main>
                 <div className="page-title-trophy">
@@ -33,18 +34,6 @@ class Achievements extends PureComponent {
 
                 <div className="trophy-container-wrapper">
                     <div className="trophy-container">
-                        <div className="trophy" onClick={this.openoverlay}>
-                            <div className="content">
-                                <img class="trophy-image" alt="" src={trophy} />
-                            </div>
-                        </div>
-
-                        <div className="trophy" onClick={this.openoverlay}>
-                            <div className="content">
-                                <img class="trophy-image" alt="" src={trophy} />
-                            </div>
-                        </div>
-
                         <div className="trophy" onClick={this.openoverlay}>
                             <div className="content">
                                 <img class="trophy-image" alt="" src={trophy} />
@@ -71,35 +60,23 @@ class Achievements extends PureComponent {
 
                 <div className="trophy-container-wrapper">
                     <div className="trophy-container">
-                        <div className="trophy-locked" onClick={this.openoverlaylocked}>
-                            <div className="content">
-                                <img class="trophy-image" alt="" src={trophy} />
-                            </div>
-                        </div>
 
-                        <div className="trophy-locked" onClick={this.openoverlaylocked}>
-                            <div className="content">
-                                <img class="trophy-image" alt="" src={trophy} />
-                            </div>
-                        </div>
-
-                        <div className="trophy-locked" onClick={this.openoverlaylocked}>
-                            <div className="content">
-                                <img class="trophy-image" alt="" src={trophy} />
-                            </div>
-                        </div>
-
-                        <div className="trophy-locked" onClick={this.openoverlaylocked}>
-                            <div className="content">
-                                <img class="trophy-image" alt="" src={trophy} />
-                            </div>
-                        </div>
-
-                        <div className="trophy-locked" onClick={this.openoverlaylocked}>
-                            <div className="content">
-                                <img class="trophy-image" alt="" src={trophy} />
-                            </div>
-                        </div>
+                        {achievements ?
+                            //true
+                            achievements.map(
+                                //for each every achievement (child in achievements)
+                                achievement => (
+                                    <div className="trophy-locked" onClick={this.openoverlaylocked}>
+                                        <div className="content">
+                                            <img class="trophy-image" alt="" src={trophy} />
+                                        </div>
+                                    </div>
+                                )
+                            )
+                            :
+                            //false
+                            console.log("wait a minute...")
+                        }
                     </div>
                 </div>
 

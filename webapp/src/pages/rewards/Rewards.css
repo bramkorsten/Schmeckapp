@@ -1,1 +1,7 @@
 @import "../../globals/variables.css";
+
+.rewardsViewer {
+    padding: var(--default-padding-mobile);
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

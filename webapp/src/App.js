@@ -31,6 +31,7 @@ class App extends PureComponent {
 
   componentDidMount() {
     this.fetchData();
+    this.fetchAchievements();
   }
 
   activateHamburger = () => {
@@ -51,12 +52,12 @@ class App extends PureComponent {
   };
 
   fetchData = () => {
-    const apiUrl = "http://127.0.0.1:8000/api/";
+    const apiUrl = "http://localhost:8000/api/";
     fetch(apiUrl + "user", {
       method: "GET",
       headers: new Headers({
-        Accept: "application/json",
-        Authorization:
+        'Accept': "application/json",
+        'Authorization':
           "Bearer qo5xIHw4EpczFTgYES1TcCAwb4c6pwIt6QaCb6jmNNobplyRqkWIU3R3btVV",
         "Content-Type": "application/x-www-form-urlencoded"
       })
@@ -75,8 +76,34 @@ class App extends PureComponent {
       );
   };
 
+  fetchAchievements = () => {
+    const apiUrl = "http://localhost:8000/api/";
+    fetch(apiUrl + "achievements", {
+      method: "GET",
+      headers: new Headers({
+        'Accept': "application/json",
+        'Authorization':
+          "Bearer qo5xIHw4EpczFTgYES1TcCAwb4c6pwIt6QaCb6jmNNobplyRqkWIU3R3btVV",
+        "Content-Type": "application/x-www-form-urlencoded"
+      })
+    })
+      .then(res => res.json())
+      .then(
+        result => {
+          this.setState({
+            achievements: result
+          });
+          console.log(result);
+        },
+        error => {
+          console.error(error);
+        }
+      );
+  };
+
   render() {
-    const { wallet, title, activeHamburger, profile } = this.state;
+    const { wallet, title, activeHamburger, profile, achievements } = this.state;
+    console.log(profile);
 
     return (
       <BrowserRouter>
@@ -111,7 +138,7 @@ class App extends PureComponent {
             <Route
               exact
               path="/prestaties"
-              render={() => <Achievements editHeader={this.editHeader} />}
+              render={() => <Achievements achievements={achievements} editHeader={this.editHeader} />}
             />
             <Route
               exact
