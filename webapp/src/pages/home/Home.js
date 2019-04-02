@@ -1,46 +1,26 @@
 import React, { PureComponent } from "react";
 import "./Home.css";
 import profilePhoto from "../../images/profilePhoto.jpg";
+import taart from "../../images/taart.jpg";
+import voetbaltafel from "../../images/voetbaltafel.jpg";
+import koffie from "../../images/koffie.jpg";
+import { Badge } from "../../components/elements";
 import { Link } from "react-router-dom";
 
 class Home extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-        //put your state here
-    };
+    this.state = {};
   }
 
   componentWillMount() {
     this.props.editHeader(true, "");
   }
 
-  componentDidMount() {
-    const { apiUrl } = this.props;
-    fetch(apiUrl + "user", {
-      method: 'GET',
-      headers: new Headers({
-        'Accept': 'application/json',
-        'Authorization': 'Bearer oqV7Ztrrl97Q4mVRNeJE3I3AUNmQJ1eYliokLEbAj2AjfkGqoATiymTd8sUL',
-        'Content-Type': 'application/x-www-form-urlencoded'
-     }),
-    })
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            name: result.first_name + ' ' + result.last_name,
-          });
-          console.log(result);
-        },
-        (error) => {
-          console.error(error);
-        }
-      )
-  }
-
   render() {
-    const { name } = this.state;
+    const { profile } = this.props;
+    const name = profile.first_name + " " + profile.last_name;
+
     return (
       <main>
         <figure className={"profileInfo"}>
@@ -51,11 +31,11 @@ class Home extends PureComponent {
         </figure>
 
         <div className={"levelContainer"}>
-          <h4>Level 5</h4>
+          <h4>Level {profile.data.level}</h4>
           <div className={"progressbar-outer"}>
             <div className={"progressbar-inner"} />{" "}
           </div>
-          <p className={"xpCounter"}>2070/3850 xp</p>
+          <p className={"xpCounter"}>{profile.data.xp} xp</p>
         </div>
 
         <section className={"rewardsContainer"}>
@@ -65,8 +45,10 @@ class Home extends PureComponent {
               <h2 className={"rewardsLink"}>Alle</h2>
             </Link>
           </div>
-          <div className={"rewards"}>
-
+          <div className={"badges"}>
+            <Badge badgeImage={taart} title={"Taart"} />
+            <Badge badgeImage={voetbaltafel} title={"Voetbaltafel"} />
+            <Badge badgeImage={koffie} title={"Koffie"} />
           </div>
         </section>
 
@@ -77,8 +59,12 @@ class Home extends PureComponent {
               <h2 className={"rewardsLink"}>Alle</h2>
             </Link>
           </div>
-          <div className={"rewards"}>
-
+          <div className={"badges"}>
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
           </div>
         </section>
       </main>
