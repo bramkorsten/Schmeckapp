@@ -1,6 +1,10 @@
 import React, { PureComponent } from "react";
 import "./Home.css";
 import profilePhoto from "../../images/profilePhoto.jpg";
+import taart from "../../images/taart.jpg";
+import voetbaltafel from "../../images/voetbaltafel.jpg";
+import koffie from "../../images/koffie.jpg";
+import { Badge } from "../../components/elements";
 import { Link } from "react-router-dom";
 
 class Home extends PureComponent {
@@ -13,9 +17,37 @@ class Home extends PureComponent {
     this.props.editHeader(true, "");
   }
 
+  componentDidUpdate() {
+    this.calculateProgress();
+  }
+
+  calculateProgress = () => {
+    const progressBarInner = document.getElementById("progressbar-inner");
+    const { profile } = this.props;
+    let progress = 0;
+    if (progressBarInner) {
+      if (profile.data.xp !== undefined) {
+        const currentXp = profile.data.xp;
+        const xpInCurrentLevel = profile.data.xp_currentLvl;
+        const xpMadeInCurrentLevel = currentXp - xpInCurrentLevel;
+        const xpNeeded = profile.data.xp_required;
+
+        if (xpMadeInCurrentLevel !== 0) {
+          progress = (xpMadeInCurrentLevel / xpNeeded) * 100;
+        }
+        progressBarInner.style.width = progress + "%";
+      }
+    }
+    this.setState({
+      progress: progress
+    })
+  };
+
   render() {
     const { profile } = this.props;
+    const { progress } = this.state;
     const name = profile.first_name + " " + profile.last_name;
+    this.calculateProgress();
 
     return (
       <main>
@@ -29,9 +61,20 @@ class Home extends PureComponent {
         <div className={"levelContainer"}>
           <h4>Level {profile.data.level}</h4>
           <div className={"progressbar-outer"}>
-            <div className={"progressbar-inner"} />{" "}
+            <div id={"progressbar-inner"} style={{width: progress + "%"}} />
           </div>
-          <p className={"xpCounter"}>{profile.data.xp} xp</p>
+          <div className={"xpData"}>
+            <p>{profile.data.xp_currentLvl}</p>
+
+            <p className={"xpCounter"}>
+              {profile.data.xp
+                ? profile.data.xp + "/" + profile.data.xp_required
+                : 0 + "/" + 0}
+              XP
+            </p>
+
+            <p>{profile.data.xp_required}</p>
+          </div>
         </div>
 
         <section className={"rewardsContainer"}>
@@ -42,42 +85,9 @@ class Home extends PureComponent {
             </Link>
           </div>
           <div className={"badges"}>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
+            <Badge badgeImage={taart} title={"Taart"} />
+            <Badge badgeImage={voetbaltafel} title={"Voetbaltafel"} />
+            <Badge badgeImage={koffie} title={"Koffie"} />
           </div>
         </section>
 
@@ -89,12 +99,11 @@ class Home extends PureComponent {
             </Link>
           </div>
           <div className={"badges"}>
-            <div className={"badgeContainer"}>
-              <div className={"badgeImageContainer"}>
-                <img src={profilePhoto} alt={"reward"} />
-              </div>
-              <span className={"badgeTitle"}>Beloning</span>
-            </div>
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
+            <Badge badgeImage={profilePhoto} title={"Prestatie"} />
           </div>
         </section>
       </main>

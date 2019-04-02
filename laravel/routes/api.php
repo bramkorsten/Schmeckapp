@@ -23,10 +23,12 @@ Route::post('login', 'Auth\LoginController@login');
 Route::group(['middleware' => 'auth:api'], function() {
   Route::post('logout', 'Auth\LoginController@logout');
 
-  Route::get('user', 'UserController@show');
+  Route::get('user', 'UserController@show')->middleware('levelSystem');
   Route::post('user/xp', 'UserController@addXP');
   Route::post('user/schmeckles', 'UserController@addSchmeckles');
   Route::post('user/achievements', 'UserController@addAchievements');
+  Route::post('user/rewards', 'UserController@addRewards');
+  Route::post('user/spendReward', 'UserController@removeRewards');
 
   Route::get('rewards', 'RewardController@index');
   Route::get('rewards/{reward}', 'RewardController@show');
@@ -45,4 +47,7 @@ Route::group(['middleware' => 'auth:api'], function() {
   Route::post('stories', 'StoryController@store');
   Route::put('stories/{story}', 'StoryController@update');
   Route::delete('stories/{story}', 'StoryController@delete');
+
+  Route::post('cycle/update', 'CycleController@update');
+  Route::post('cycle/addDay', 'CycleController@addDay');
 });

@@ -1,0 +1,30 @@
+@import "../../../globals/variables.css";
+
+button {
+    color: white;
+    border: none;
+    border-radius: var(--default-border-radius);
+    width: 100%;
+    height: 50px;
+    font-family: "Montserrat-Bold";
+    font-size: 20px;
+    outline: none;
+    margin-top: var(--default-padding-mobile);
+}
+
+.positive {
+    background-color: var(--green);
+}
+
+.negative {
+    background-color: var(--red);
+}
+
+.neutral {
+    background-color: var(--lightBlue);
+}
+
+.invert {
+    background-color: transparent;
+    color: var(--lightBlue);
+}

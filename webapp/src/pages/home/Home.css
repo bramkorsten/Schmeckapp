@@ -37,15 +37,26 @@ figure img {
     overflow: hidden;
 }
 
-.progressbar-inner {
+#progressbar-inner {
     background-color: var(--lightBlue);
     height: 100%;
     position: relative;
-    width: 80%;
+    width: 0%;
+    transition: var(--default-transition-duration) var(--default-transition-type);
+}
+
+.xpData {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.xpData p {
+  color: var(--secondary-font-color);
 }
 
 .xpCounter {
-    color: var(--lightBlue);
+    color: var(--lightBlue) !important;
 }
 
 .rewardsContainer {
@@ -90,30 +101,4 @@ figure img {
 
 .badges::-webkit-scrollbar { 
   display: none; 
-}
-
-.badgeContainer {
-  width: 130px;
-  height: 100%;
-  text-align: center;
-  margin-right: 15px;
-}
-
-.badgeImageContainer {
-  width: 100%;
-  overflow: hidden;
-  height: 130px;
-}
-
-.badgeImageContainer img {
-  width: 130px;
-  height: 100%;
-  border-radius: var(--default-border-radius);
-}
-
-.badgeTitle {
-  font-family: "Montserrat-Regular";
-  color: var(--primary-font-color);
-  font-size: 16px;
-  line-height: 50px;
 }

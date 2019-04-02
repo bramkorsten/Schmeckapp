@@ -3,7 +3,7 @@
 .store_cards-contain {
   display: grid;
   grid-template-columns: 50% 50%;
-  padding: 10px;
+  padding: var(--default-padding-mobile);
 }
 
 .popup-modal-wall {
