@@ -10,7 +10,6 @@ class RewardController extends Controller
 {
   public function index()
   {
-    // echo(Auth::guard('api')->user());
     return Reward::all();
   }
 

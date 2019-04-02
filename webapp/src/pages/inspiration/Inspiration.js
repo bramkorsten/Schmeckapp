@@ -21,16 +21,13 @@ class Inspiration extends PureComponent {
     render() {
         return (
             <main>
-                <div class="title">
-                    <h1>Inspiratiepagina</h1>
-                </div>
 
                 <div class="container">
                     <div class="person-parent">
                         <div id="person" onClick={this.openoverlay}>
                             <div class="person-info">
                                 <h2 class="whiteh2">Henry Hendrickson</h2>
-                                <p class="widthp">Lorem ipsum dolor sit amet, consectetur </p>
+                                <p class="widthp">Media Designer</p>
                             </div>
                             <div class="person-info-image">
                                 <img class="person-info-image-src" alt="" src={laptopman2} />
@@ -44,7 +41,7 @@ class Inspiration extends PureComponent {
                         <div id="person" onClick={this.openoverlay}>
                             <div class="person-info">
                                 <h2 class="whiteh2">Frits van der Peersen</h2>
-                                <p class="widthp">Lorem ipsum dolor sit amet, consectetur </p>
+                                <p class="widthp">Ober</p>
                             </div>
                             <div class="person-info-image">
                                 <img class="person-info-image-src" alt="" src={ober} />
@@ -58,7 +55,7 @@ class Inspiration extends PureComponent {
                         <div id="person" onClick={this.openoverlay}>
                             <div class="person-info">
                                 <h2 class="whiteh2">Frits van der Peersen</h2>
-                                <p class="widthp">Lorem ipsum dolor sit amet, consectetur </p>
+                                <p class="widthp">Bakker</p>
                             </div>
                             <div class="person-info-image">
                                 <img class="person-info-image-src" alt="" src={ober} />
