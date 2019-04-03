@@ -26,7 +26,8 @@ Route::group(['middleware' => 'auth:api'], function() {
   Route::get('user', 'UserController@show')->middleware('levelSystem');
   Route::post('user/xp', 'UserController@addXP');
   Route::post('user/schmeckles', 'UserController@addSchmeckles');
-  Route::post('user/achievements', 'UserController@addAchievements');
+  Route::post('user/addAchievements', 'UserController@addAchievements');
+  Route::get('user/achievements', 'UserController@getAchievements');
   Route::post('user/rewards', 'UserController@addRewards');
   Route::post('user/spendReward', 'UserController@removeRewards');
 

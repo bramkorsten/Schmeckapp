@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use App\User;
+use App\Achievement;
 
 class UserController extends Controller
 {
@@ -105,6 +106,38 @@ class UserController extends Controller
 
     return response()->json(['result' => 'isAdmin', 'user' => $user], 200);
 
+  }
+
+  public function getAchievements(Request $request)
+  {
+    $user = Auth::guard('api')->user();
+    $data = json_decode($user->data, true);
+
+    $fullUnlockedAchievements = array();
+    $unlockedAchievements = $data['achievements'];
+    
+    for ($i=0; $i < count($unlockedAchievements); $i++) {
+      $enne = Achievement::where('id', $unlockedAchievements[$i])->first();
+      array_push($fullUnlockedAchievements, $enne);
+    }
+
+    $AllAchievements = json_decode(Achievement::all());
+    $lockedAchievements = array();
+
+    //check which achievements the user doesn't have yet
+    foreach ($AllAchievements as $key => $value) {
+      if(!in_array($AllAchievements[$key]->id, $unlockedAchievements))
+      {
+        array_push($lockedAchievements, $AllAchievements[$key]);
+      }
+    }
+    
+    $achievements = array(
+      "unlocked" => $fullUnlockedAchievements,
+      "locked" => $lockedAchievements
+    );
+
+    return $achievements; 
   }
 
   public function addRewards(Request $request)
