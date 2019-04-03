@@ -34,13 +34,21 @@ class CycleController extends Controller
     }
 
     $users = $request->users;
-
+    $response = array(
+      'message' => 'Day Added. XP Calculated for following users',
+      'users' => array(),
+    );
 
     foreach ($users as $key => $user) {
       $userFromDatabase = User::where('id', $user)->first();
-      $userFromDatabase->addDayWorked();
+      if (!empty($userFromDatabase)) {
+        $userObject = $userFromDatabase->addDayWorked();
+        $response['users'][$key] = $userObject;
+      } else {
+        $response['users'][$key] = "User with id '{$user}' does not exist";
+      }
     }
 
-    return response()->json('Should be done', 200);
+    return response()->json($response, 200);
   }
 }

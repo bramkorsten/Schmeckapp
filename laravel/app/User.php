@@ -65,13 +65,12 @@ class User extends Authenticatable
     }
 
     public function onLevelUp() {
-      $userdata = json_decode($this->data, true);
-
-      $this->addSchmeckels($userdata);
-
+      // This function runs when the user levelups. This is calculated by the calculateLevel() function
+      $this->addSchmeckels();
     }
 
-    public function addSchmeckels($userdata) {
+    public function addSchmeckels() {
+      $userdata = json_decode($this->data, true);
 
       // Calculate the amount of schmeckels to be added to the user
       $schmeckels = pow($userdata['level'], 1.5) + 9;
@@ -84,7 +83,14 @@ class User extends Authenticatable
     }
 
     public function addDayWorked() {
-      
+      $userdata = json_decode($this->data, true);
+      $level = $userdata['level'];
+      $xpGained = pow($level, 2) + 100;
+      $userdata['xp'] = $userdata['xp'] + $xpGained;
+      $this->data = json_encode($userdata);
+      $this->save();
+      $this->calculateLevel();
+      return($this);
     }
 
     public function isAdmin()
@@ -93,5 +99,51 @@ class User extends Authenticatable
         return true;
       }
       return false;
+    }
+
+    protected function calculateXpForLevel($level)
+    {
+      // Algorithm for calculating xp required
+
+      $multiplier = 1;
+
+      $xpRequired = pow(($level * 4), 2.1) + 81.621;
+      $xpRequired = round($xpRequired * $multiplier);
+
+      return($xpRequired);
+    }
+
+    protected function calculateLevel() {
+      $hasLevelUpped = false;
+
+      // Calculate XP needed
+      $userdata = json_decode($this->data, true);
+
+      // Get the current level and xp
+      $currentXp = $userdata['xp'];
+      $currentLvl = $userdata['level'];
+
+      // Calculate the xp required
+      $xpRequired = $this->calculateXpForLevel($currentLvl + 1);
+      $userdata['xp_required'] = $xpRequired;
+      $userdata['xp_currentLvl'] = $this->calculateXpForLevel($currentLvl);
+
+      // if the current xp is higher than the xp required, levelup and calculate new xp.
+      if ($currentXp >= $xpRequired) {
+        $hasLevelUpped = true;
+        $userdata['level'] = $currentLvl + 1;
+        $userdata['xp_required'] = $this->calculateXpForLevel($userdata['level'] + 1);
+        $userdata['xp_currentLvl'] = $this->calculateXpForLevel($userdata['level']);
+
+      }
+
+      // Save the data to the user
+      $this->data = \json_encode($userdata);
+      $this->save();
+      if ($hasLevelUpped) {
+        $this->onLevelUp();
+      }
+
+      return true;
     }
 }
