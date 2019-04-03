@@ -1,0 +1,40 @@
+@import "../../../globals/variables.css";
+
+.loading-spinner-contain {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  z-index: 10;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s;
+}
+
+.spinner-hidden {
+  opacity: 0;
+}
+
+.spinner-gone {
+  display: none;
+}
+
+.loading-spinner-wrap {
+  width: 100px;
+  border-radius: 50%;
+}
+.loading-spinner-wrap img {
+  width: 100%;
+  display: block;
+  animation-name: spinner1;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spinner1 {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
