@@ -38,6 +38,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Generate a unique API token for the user.
+     * Called in Auth\RegisterController and Auth\LoginController
+     * @return String $api_token
+     */
     public function generateToken()
     {
       $this->api_token = str_random(60);
@@ -46,6 +51,11 @@ class User extends Authenticatable
       return $this->api_token;
     }
 
+    /**
+     * Generate the base data for a new user.
+     * This is de default "profile" a user will start with
+     * @return Array $data
+     */
     public function generateBaseData()
     {
       $data = array(
@@ -64,11 +74,21 @@ class User extends Authenticatable
       return $this->data;
     }
 
+    /**
+     * This function runs every time a user levelups.
+     * This is calculated by the User::calculateLevel() function
+     * and called on every request by the Middleware\levelSystem Class.
+     * @return boolean
+     */
     public function onLevelUp() {
-      // This function runs when the user levelups. This is calculated by the calculateLevel() function
       $this->addSchmeckels();
+      return true;
     }
 
+    /**
+     * Add schmeckels based on the level of the user.
+     * The calculation user is (level ^ 1.5) + 9.
+     */
     public function addSchmeckels() {
       $userdata = json_decode($this->data, true);
 
@@ -76,23 +96,43 @@ class User extends Authenticatable
       $schmeckels = pow($userdata['level'], 1.5) + 9;
       $schmeckels = round($schmeckels);
 
+      // Add them to the current ammount
       $userdata['schmeckels'] = $userdata['schmeckels'] + $schmeckels;
 
+      // jsonEncode the data and save the user
       $this->data = json_encode($userdata);
       $this->save();
     }
 
+    /**
+     * This function runs when App\CycleController wants to add a workday to the user.
+     * The algorithm used here is (level ^ 2) + 100
+     * @return User Current user
+     */
     public function addDayWorked() {
       $userdata = json_decode($this->data, true);
+
+      // Get the level of the user
       $level = $userdata['level'];
+
+      // Calculate the xp the user has gained, and add it
       $xpGained = pow($level, 2) + 100;
       $userdata['xp'] = $userdata['xp'] + $xpGained;
       $this->data = json_encode($userdata);
+
+      // Save the user and recalculate the current level.
       $this->save();
       $this->calculateLevel();
+
+      // return the current user
       return($this);
     }
 
+    /**
+     * User function to check if the user is an admin.
+     * Uses the 'type' property in the database
+     * @return boolean isAdmin
+     */
     public function isAdmin()
     {
       if ($this->type === 2) {
@@ -101,22 +141,35 @@ class User extends Authenticatable
       return false;
     }
 
+    /**
+     * Function to calculate the xp needed for a certain level
+     * Uses the following algorithm: ((level * 4) ^ 2.1) + 81.621
+     * This means level 1 is 100xp.
+     * @param  integer $level the level to calculate xp for
+     * @return integer        the xp required for this level
+     */
     protected function calculateXpForLevel($level)
     {
-      // Algorithm for calculating xp required
-
+      // Added a multiplier to make getting the XP easier or harder
       $multiplier = 1;
 
+      // The algorithm for calculating the xp
       $xpRequired = pow(($level * 4), 2.1) + 81.621;
       $xpRequired = round($xpRequired * $multiplier);
 
       return($xpRequired);
     }
 
+    /**
+     * This function is called by multiple systems to update the current level of a user.
+     * It is called on every request by the Middleware\levelSystem Class,
+     * but can be called whenever needed. Should be called whenever XP is added to the user.
+     * @return boolean
+     */
     protected function calculateLevel() {
       $hasLevelUpped = false;
 
-      // Calculate XP needed
+      // Get the user's data
       $userdata = json_decode($this->data, true);
 
       // Get the current level and xp
