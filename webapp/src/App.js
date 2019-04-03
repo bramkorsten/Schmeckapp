@@ -31,6 +31,8 @@ class App extends PureComponent {
   }
 
   componentDidMount() {
+    this.apiUrl = "http://127.0.0.1:8000/api/";
+    this.bearer = "qo5xIHw4EpczFTgYES1TcCAwb4c6pwIt6QaCb6jmNNobplyRqkWIU3R3btVV";
     this.fetchData();
     this.fetchAchievements();
   }
@@ -54,13 +56,12 @@ class App extends PureComponent {
 
   fetchData = () => {
     this.showSpinner();
-    const apiUrl = "http://145.93.180.208:8000/api/";
-    fetch(apiUrl + "user", {
+    fetch(this.apiUrl + "user", {
       method: "GET",
       headers: new Headers({
         'Accept': "application/json",
         'Authorization':
-          "Bearer qo5xIHw4EpczFTgYES1TcCAwb4c6pwIt6QaCb6jmNNobplyRqkWIU3R3btVV",
+          "Bearer " + this.bearer,
         "Content-Type": "application/x-www-form-urlencoded"
       })
     })
@@ -81,13 +82,12 @@ class App extends PureComponent {
 
   fetchAchievements = () => {
     this.showSpinner();
-    const apiUrl = "http://145.93.180.208:8000/api/";
-    fetch(apiUrl + "achievements", {
+    fetch(this.apiUrl + "achievements", {
       method: "GET",
       headers: new Headers({
         'Accept': "application/json",
         'Authorization':
-          "Bearer qo5xIHw4EpczFTgYES1TcCAwb4c6pwIt6QaCb6jmNNobplyRqkWIU3R3btVV",
+          "Bearer " + this.bearer,
         "Content-Type": "application/x-www-form-urlencoded"
       })
     })
