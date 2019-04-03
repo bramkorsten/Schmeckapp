@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Auth;
 use App\User;
 use App\Achievement;
+use App\Reward;
 
 class UserController extends Controller
 {
@@ -15,6 +16,11 @@ class UserController extends Controller
   {
     $user = Auth::guard('api')->user();
     $user->data = \json_decode($user->data);
+    
+    for ($i=0; $i < count($user->data->rewards) ; $i++) { 
+      $user->data->rewards[$i] = Reward::where('id', $user->data->rewards[$i])->first();
+    }
+
     return $user;
   }
 

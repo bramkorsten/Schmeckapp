@@ -10,8 +10,6 @@ class PopupModal extends PureComponent {
         </div>
         <div className="popup-modal-contain modal-hidden">
           <div className="popup-modal-wrap">
-          <button onClick={this.confirmBuy}>Saff</button>
-          <button onClick={this.cancelBuy}>Fakka</button>
           </div>
         </div>
       </div>

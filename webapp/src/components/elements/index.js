@@ -8,3 +8,4 @@ export { default as Badge } from './badge/Badge';
 export { default as Button } from './button/Button';
 export { default as Overlaytrophy } from './overlaytrophy/Overlaytrophy';
 export { default as SpinnerOverlay } from './spinnerOverlay/SpinnerOverlay';
+export { default as PopUp } from './popUp/PopUp';
