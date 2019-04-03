@@ -54,7 +54,7 @@ class App extends PureComponent {
 
   fetchData = () => {
     this.showSpinner();
-    const apiUrl = "http://127.0.0.1:8000/api/";
+    const apiUrl = "http://145.93.180.208:8000/api/";
     fetch(apiUrl + "user", {
       method: "GET",
       headers: new Headers({
@@ -81,7 +81,7 @@ class App extends PureComponent {
 
   fetchAchievements = () => {
     this.showSpinner();
-    const apiUrl = "http://127.0.0.1:8000/api/";
+    const apiUrl = "http://145.93.180.208:8000/api/";
     fetch(apiUrl + "achievements", {
       method: "GET",
       headers: new Headers({

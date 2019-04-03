@@ -115,7 +115,8 @@ class UserController extends Controller
 
     $fullUnlockedAchievements = array();
     $unlockedAchievements = $data['achievements'];
-    
+
+
     for ($i=0; $i < count($unlockedAchievements); $i++) {
       $enne = Achievement::where('id', $unlockedAchievements[$i])->first();
       array_push($fullUnlockedAchievements, $enne);
@@ -131,13 +132,13 @@ class UserController extends Controller
         array_push($lockedAchievements, $AllAchievements[$key]);
       }
     }
-    
+
     $achievements = array(
       "unlocked" => $fullUnlockedAchievements,
       "locked" => $lockedAchievements
     );
 
-    return $achievements; 
+    return $achievements;
   }
 
   public function addRewards(Request $request)
