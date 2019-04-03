@@ -3,6 +3,7 @@ import "./Rewards.css";
 import taart from "../../images/taart.jpg";
 import thumbs from "../../images/thumbs.png";
 import { StoreItem, Button, PopUp } from "../../components/elements";
+import RootRef from "@material-ui/core/RootRef";
 
 class Rewards extends PureComponent {
   constructor(props) {
@@ -10,6 +11,15 @@ class Rewards extends PureComponent {
     this.state = {
       active: false
     };
+    this.openSecondPopUp = React.createRef();
+  }
+
+  componentDidMount() {
+    this.openSecondPopUp.current.addEventListener("click", this.activateConfirmation);
+  }
+
+  componentWillUnmount() {
+    this.openSecondPopUp.current.removeEventListener("click", this.activateConfirmation);
   }
 
   componentWillMount() {
@@ -39,11 +49,12 @@ class Rewards extends PureComponent {
   render() {
     const { active } = this.state;
     const buttons = [
-      <Button
-        onClick={this.activateConfirmation}
-        variant={"positive"}
-        text={"Activeer"}
-      />
+      <RootRef rootRef={this.openSecondPopUp}>
+        <Button
+          variant={"positive"}
+          text={"Activeer"}
+        />
+      </RootRef>
     ];
 
     return (
