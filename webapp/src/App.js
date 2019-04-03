@@ -10,6 +10,7 @@ import {
 } from "./pages";
 import { Header, Footer } from "./components/globals";
 import { Overlay } from "./components/modals";
+import { SpinnerOverlay } from "./components/elements";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends PureComponent {
@@ -52,7 +53,8 @@ class App extends PureComponent {
   };
 
   fetchData = () => {
-    const apiUrl = "http://localhost:8000/api/";
+    this.showSpinner();
+    const apiUrl = "http://127.0.0.1:8000/api/";
     fetch(apiUrl + "user", {
       method: "GET",
       headers: new Headers({
@@ -69,6 +71,7 @@ class App extends PureComponent {
             profile: result
           });
           console.log(result);
+          this.hideSpinner();
         },
         error => {
           console.error(error);
@@ -77,7 +80,8 @@ class App extends PureComponent {
   };
 
   fetchAchievements = () => {
-    const apiUrl = "http://localhost:8000/api/";
+    this.showSpinner();
+    const apiUrl = "http://127.0.0.1:8000/api/";
     fetch(apiUrl + "achievements", {
       method: "GET",
       headers: new Headers({
@@ -94,12 +98,27 @@ class App extends PureComponent {
             achievements: result
           });
           console.log(result);
+          this.hideSpinner();
         },
         error => {
           console.error(error);
         }
       );
   };
+
+  hideSpinner = () => {
+    document.querySelector('.loading-spinner-contain').classList.add('spinner-hidden');
+    setTimeout(function() {
+      document.querySelector('.loading-spinner-contain').classList.add('spinner-gone');
+    },300);
+  }
+
+  showSpinner = () => {
+    document.querySelector('.loading-spinner-contain').classList.remove('spinner-gone');
+    setTimeout(function() {
+      document.querySelector('.loading-spinner-contain').classList.remove('spinner-hidden');
+    },10)
+  }
 
   render() {
     const { wallet, title, activeHamburger, profile, achievements } = this.state;
@@ -119,6 +138,7 @@ class App extends PureComponent {
             hamburgerFunction={this.activateHamburger}
             active={activeHamburger}
           />
+          <SpinnerOverlay />
           <Switch>
             <Route
               exact
