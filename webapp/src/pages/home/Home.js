@@ -31,9 +31,10 @@ class Home extends PureComponent {
         const xpInCurrentLevel = profile.data.xp_currentLvl;
         const xpMadeInCurrentLevel = currentXp - xpInCurrentLevel;
         const xpNeeded = profile.data.xp_required;
+        const xpNeededThisLevel = xpNeeded - xpInCurrentLevel;
 
         if (xpMadeInCurrentLevel !== 0) {
-          progress = (xpMadeInCurrentLevel / xpNeeded) * 100;
+          progress = (xpMadeInCurrentLevel / xpNeededThisLevel) * 100;
         }
         progressBarInner.style.width = progress + "%";
       }
@@ -41,6 +42,7 @@ class Home extends PureComponent {
     this.setState({
       progress: progress
     })
+    console.log(this.state.progress);
   };
 
   render() {
