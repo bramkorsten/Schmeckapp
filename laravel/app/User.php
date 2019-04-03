@@ -166,7 +166,7 @@ class User extends Authenticatable
      * but can be called whenever needed. Should be called whenever XP is added to the user.
      * @return boolean
      */
-    protected function calculateLevel() {
+    public function calculateLevel() {
       $hasLevelUpped = false;
 
       // Get the user's data
