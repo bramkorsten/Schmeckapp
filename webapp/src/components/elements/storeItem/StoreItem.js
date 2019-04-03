@@ -1,28 +1,22 @@
 import React, { PureComponent } from "react";
 import "./StoreItem.css";
 import schmeckle from "../../../images/schmeckle.svg";
-import { PopupModal } from '../';
 
 class StoreItem extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      //put your state here
+      
     };
   }
 
-  itemMenu = () => {
-    alert(this.props.itemId);
-  };
-
   render() {
-    const { amount, title, image, itemId } = this.props;
+    const { amount, title, image, itemId, onClickFunc } = this.props;
     return (
-      //return your html here
       <div
         className="store-card-wrap"
         data-item-id={itemId}
-        onClick={this.itemMenu}
+        onClick={onClickFunc}
       >
         <img className="card-wall-img" src={image} alt="" />
         <div className="card-content">
