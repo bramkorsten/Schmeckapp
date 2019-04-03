@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import "./StoreItem.css";
 import schmeckle from "../../../images/schmeckle.svg";
+import { PopupModal } from '../';
 
 class StoreItem extends PureComponent {
   constructor(props) {

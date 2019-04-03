@@ -5,11 +5,11 @@ import { StoreItem, Button } from "../../components/elements";
 
 class Rewards extends PureComponent {
 
-    componentWillMount(){
+    componentWillMount() {
         this.props.editHeader(false, "Beloningen");
     }
 
-    render() {    
+    render() {
         return (
             <main>
                 <div className={"rewardsViewer"}>

@@ -5,3 +5,43 @@
   grid-template-columns: 50% 50%;
   padding: var(--default-padding-mobile);
 }
+
+.popup-modal-wall {
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 70px;
+  max-width: 800px;
+  transition: opacity 0.3s;
+}
+
+.wall-hidden {
+  top: 100%;
+  opacity: 0;
+}
+
+.popup-modal-contain {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
+.modal-hidden {
+  transform: translateY(0);
+}
+
+.popup-modal-wrap {
+  width: 300px;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 5px;
+  background: #fff;
+}
