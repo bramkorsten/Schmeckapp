@@ -1,0 +1,65 @@
+@import "./globals/variables.css";
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  overflow-x: hidden;
+  overflow-y: unset;
+  position: relative;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 800px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  background-color: white;
+  box-sizing: border-box;
+  margin-top: var(--default-padding-mobile);
+  min-height: calc(100% - var(--default-header-height) - var(--default-padding-mobile));
+  height: auto;
+}
+
+h1 {
+  font-family: "Montserrat-Bold";
+  color: var(--secondary-font-color);
+  font-size: 30px;
+}
+
+h2 {
+  font-family: "Montserrat-Bold";
+  color: var(--secondary-font-color);
+  font-size: 20px;
+  margin: 0;
+}
+
+h4 {
+  font-family: "Montserrat-Regular";
+  color: var(--primary-font-color);
+  font-size: 20px;
+  margin: 15px;
+}
+
+p {
+  font-family: "Montserrat-Regular";
+  color: var(--primary-font-color);
+}
+
+a {
+  color: var(--lightBlue) !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

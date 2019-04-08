@@ -4,6 +4,6 @@
     //     echo $user->username;
     // }
 
-    echo JSON_encode($users);
+    $users;
 
     ?>

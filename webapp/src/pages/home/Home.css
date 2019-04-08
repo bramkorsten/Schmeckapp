@@ -1,0 +1,104 @@
+@import "../../globals/variables.css";
+
+.profileInfo {
+  max-width: 400px;
+  width: calc(100% - calc(var(--default-padding-mobile) * 2));
+  margin: 0 auto calc(var(--default-padding-mobile) * 2) auto;
+  text-align: center;
+}
+
+.profileInfo img {
+  /* clip-path: circle(130px at center); */
+  border-radius: 50%;
+}
+
+h2 a{
+  color: var(--lightBlue) !important;
+}
+
+figure img {
+  max-width: 500px;
+  margin: 0 auto;
+  width: 80%;
+  height: auto;
+}
+
+.levelContainer {
+  width: calc(100% - calc(var(--default-padding-mobile) * 2));
+  text-align: center;
+  margin: 0 auto calc(var(--default-padding-mobile) * 2) auto;
+  max-width: 400px;
+}
+
+.progressbar-outer {
+    background-color: var(--secondary-background-color);
+    height: 20px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+#progressbar-inner {
+    background-color: var(--lightBlue);
+    height: 100%;
+    position: relative;
+    width: 0%;
+    transition: var(--default-transition-duration) var(--default-transition-type);
+}
+
+.xpData {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.xpData p {
+  color: var(--secondary-font-color);
+}
+
+.xpCounter {
+    color: var(--lightBlue) !important;
+}
+
+.rewardsContainer {
+  background-color: var(--secondary-background-color);
+  padding: var(--default-padding-mobile);
+  box-sizing: border-box;
+  margin: 0 auto calc(var(--default-padding-mobile) * 2) auto;
+}
+
+.achievementsContainer {
+  padding: var(--default-padding-mobile);
+  box-sizing: border-box;
+  margin: 0 auto calc(var(--default-padding-mobile) * 2) auto;
+}
+
+.rewardsContainer .achievementsContainer{
+  height: auto;
+  width: 100%;
+}
+
+.rewardsContainerHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rewardsLink {
+  color: var(--lightBlue);
+}
+
+.badges {
+  width: 100%;
+  overflow: scroll;
+  display: flex;
+  height: auto;
+  margin-top: var(--default-padding-mobile);
+}
+
+.badges :last-child {
+  margin-right: 0;
+}
+
+.badges::-webkit-scrollbar { 
+  display: none; 
+}

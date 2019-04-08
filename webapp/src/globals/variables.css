@@ -1,0 +1,43 @@
+@import "./fonts.css";
+
+:root {
+    /*
+     * Colors
+     */
+     --darkBlue: #053b6e;
+     --semi-lightBlue: #436ca7;
+     --lightBlue: #3379fc;
+     --red: #E34B27;
+     --green: #6FA845;
+     --primary-font-color: #000000;
+     --secondary-font-color: #707070;
+     --primary-background-color: #ffffff;
+     --secondary-background-color: #F8F9FA;
+     /*
+     * Fonts
+     */
+    --default-font-header: "Montserrat-Bold";
+    --default-font-text: "Montserrat-Regular";
+     /*
+     * Layout & Sizes
+     */
+    --default-padding: 20px;
+    --default-padding-header: 20px;
+    --default-padding-mobile: 20px;
+    --default-header-height: 70px;
+
+    --default-border-radius: 5px;
+     /*
+     * Animation
+     */
+     --default-transition-duration: 0.5s;
+     --default-transition-type: ease;
+     /*
+     * Media queries breakpoints
+     */
+     --screen-xs: 576px;
+     --screen-sm: 768px;
+     --screen-md: 992px;
+     --screen-lg: 1200px;
+     --screen-xl: 1376px;
+ }

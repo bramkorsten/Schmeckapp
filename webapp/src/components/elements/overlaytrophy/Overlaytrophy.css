@@ -1,0 +1,79 @@
+@import "../../../globals/variables.css";
+
+#overlay-unlocked {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .4s ease;
+}
+
+#overlay-locked {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .4s ease;
+}
+
+#content {
+    margin: 0 auto;
+    width: 100%;
+    height: 70%;
+    font-size: 20px;
+    position: relative;
+    top: 35%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.trophy-header-locked {
+    width: 100%;
+    background-color: lightgray;
+    height: 50vw;
+}
+
+.trophy-header {
+    width: 100%;
+    background-color: #3379FC;
+    height: 50vw;
+}
+
+.trophy-image-header {
+    height: 30vh;
+    display: block;
+    margin: 0 auto;
+}
+
+.trophy-heading {
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: left;
+    color: #3379FC;
+}
+
+.trophy-text {
+    padding-left: 5%;
+    padding-right: 5%;
+    color: gray;
+    font-size: 18px;
+    text-align: left;
+}
+
+.text {
+    padding-left: 5%;
+    padding-top: 2%;
+    text-align: left;
+}

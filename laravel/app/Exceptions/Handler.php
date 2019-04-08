@@ -3,6 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -44,8 +46,33 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+     public function render($request, Exception $exception)
+     {
+         // This will replace our 404 response with
+         // a JSON response.
+         if ($exception instanceof ModelNotFoundException) {
+             return response()->json([
+                 'error' => 'Resource not found'
+             ], 404);
+         }
+
+        if ($request->ajax() || $request->wantsJson())
+        {
+            $json = [
+                'success' => false,
+                'error' => [
+                    'code' => $e->getCode(),
+                    'message' => $e->getMessage(),
+                ],
+            ];
+            return response()->json($json, 400);
+        }
+
+         return parent::render($request, $exception);
+     }
+
+    public function unauthenticated($request, AuthenticationException $exception)
     {
-        return parent::render($request, $exception);
+        return response()->json(['error' => 'Unauthenticated'], 401);
     }
 }
